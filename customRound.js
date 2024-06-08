@@ -45,16 +45,20 @@ function specialRound(number, lastDigits, roundingType) {
 
   switch (roundingType) {
     case "9":
+      // offset to typicall rounding to with 9 is -1
       return floorAndCeil(-1);
     case "4/9":
+      // offset to typicall rounding to with 4/9 is -6 and -1
       return floorCeilComparison(-1, -6);
     case "0/5":
+      // offset to typicall rounding is 0 and -5
       return floorCeilComparison(0, -5);
     case "50":
       return roundToNearest(50);
     case "50000":
       return roundToNearest(50000);
     default:
+      // default values are every case including 0 and offset is 0
       return floorAndCeil(0);
   }
 }
